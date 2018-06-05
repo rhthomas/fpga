@@ -12,6 +12,7 @@ other FPGA open-source tools such as
 [icestorm](http://www.clifford.at/icestorm/) and
 [iverilog](http://iverilog.icarus.com/) among others.
 
-## Examples
+## Builds
 
 [count](./count/) : Binary counter.
+[adder](./adder/) : Simple adder module.
