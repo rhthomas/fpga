@@ -14,7 +14,7 @@ endmodule
 
 
 
-module main (
+module top (
     input CLK,
     output [4:0] LED
 );
