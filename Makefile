@@ -45,5 +45,5 @@ time:
 	icetime -tmd hx1k main.asc
 
 clean:
-	-rm -f files.txt *.vvp *.vcd *.svg *.json *.blif *.asc *.bin
+	-rm -f files.txt *.vvp *.vcd *.json *.blif *.asc *.bin
  
