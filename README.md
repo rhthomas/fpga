@@ -15,9 +15,9 @@ other FPGA open-source tools such as
 ## Builds
 
 <details>
-	<summary>[count](./count/) : Binary counter.</summary>
-</details
+	<summary><a href="./count">count</a> : Binary counter.</summary>
+</details>
 <details>
-	<summary>[adder](./adder/) : Simple adder module.</summary>
+	<summary><a href="./adder">adder</a> : Simple adder module.</summary>
 	<img src="adder/out.svg">
 </details>
