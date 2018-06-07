@@ -29,7 +29,7 @@ check: $(FILES).txt
 sim: $(SIM).vcd
 
 draw: main.v
-	yosys -p "prep -top top -flatten; write_json out.json" $<
+	yosys -p "prep -top top; write_json out.json" $<
 	node $(SVG) out.json
 
 disp: $(SIM).vcd
