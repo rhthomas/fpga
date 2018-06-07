@@ -18,11 +18,11 @@
 
 
 # ------------ LEDS ----------------------------------------------------------
-set_io LED[4] 99
-set_io LED[3] 98
-set_io LED[2] 97
-set_io LED[1] 96
-set_io LED[0] 95
+#set_io LED[4] 99
+set_io Sum[3] 98
+set_io Sum[2] 97
+set_io Sum[1] 96
+set_io Sum[0] 95
 
 # ------------ IrDA ----------------------------------------------------------
 #set_io --warn-no-port IrDA_TX 105
@@ -56,14 +56,15 @@ set_io LED[0] 95
 #    | 87    78 | <
 #     ----------
 #
-#set_io --warn-no-port PMOD1 78
-#set_io --warn-no-port PMOD2 79
-#set_io --warn-no-port PMOD3 80
-#set_io --warn-no-port PMOD4 81
-#set_io --warn-no-port PMOD7 87
-#set_io --warn-no-port PMOD8 88
-#set_io --warn-no-port PMOD9 90
-#set_io --warn-no-port PMOD10 91
+set_io --warn-no-port A[3] 78
+set_io --warn-no-port A[2] 79
+set_io --warn-no-port A[1] 80
+set_io --warn-no-port A[0] 81
+
+set_io --warn-no-port B[3] 87
+set_io --warn-no-port B[2] 88
+set_io --warn-no-port B[1] 90
+set_io --warn-no-port B[0] 91
 
 # ------------------------ EXPANSION I/O ------------------------------------
 #
@@ -119,7 +120,7 @@ set_io LED[0] 95
 #set_io --warn-no-port BR10 44
 
 # -------------------------- SYSTEM CLOCK ------------------------------------
-set_io --warn-no-port CLK 21
+#set_io --warn-no-port CLK 21
 
 # -------------------------- FTDI --------------------------------------------
 # --- FTDI 0:
