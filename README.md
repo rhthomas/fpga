@@ -20,4 +20,4 @@ other FPGA open-source tools such as
 <details>
 	<summary>[adder](./adder/) : Simple adder module.</summary>
 	<img src="adder/out.svg">
-</details
+</details>
