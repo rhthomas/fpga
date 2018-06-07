@@ -1,27 +1,48 @@
-module counter (
-    input clk_in,
-    output wire [4:0] value
+module div (
+	input clk_in,
+	output clk_out
 );
 
-    reg [26:0] counter;
+	reg [26:0] count; 
 
-    always @(posedge clk_in)
-        counter <= counter + 1;
+	always @(posedge clk_in)
+		count <= count + 1;
 
-    assign value = counter[26:22];
+	assign clk_out = count[26];
 
 endmodule
 
+module count (
+    input clk, rst, en,
+    output [4:0] out
+);
 
+	reg [4:0] count;
+
+    always @(posedge clk) begin
+		if (rst) count <= 0;
+		else if (en) count <= count + 1;
+	end
+
+	assign out = count;
+
+endmodule
 
 module top (
-    input CLK,
-    output wire [4:0] LED
+	input clk, rst, en,
+	output [4:0] out
 );
 
-    counter c (
-        .clk_in(CLK),
-        .value(LED)
-    );
+	wire slowclk;
 
-endmodule
+	div div (
+		.clk_in(clk),
+		.clk_out(slowclk)
+	);
+
+	count count (
+		.clk(slowclk), .rst(rst), .en(en),
+		.out(out)
+	);
+
+endmodule 

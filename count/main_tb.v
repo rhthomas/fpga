@@ -2,10 +2,8 @@
 
 module main_tb;
 
-	reg CLK;
-	wire [4:0] LED;
-
-	integer x = 0;
+	reg clk, rst, en;
+	wire [4:0] out;
 
 	top top (.*);
 		
@@ -13,11 +11,10 @@ module main_tb;
 		$dumpfile("sim.vcd");
 		$dumpvars;
 		
-		CLK = 1'b0;
-		while (x <= 'h1F) begin
-			#5 CLK = ~CLK;
-			x = x + 1;
-		end
+		clk = 'b0; en = 'b0; rst = 'b1;
+		repeat (4) #5 clk = ~clk;
+		en = 'b1; rst = 'b0;
+		repeat('h1F) #5 clk = ~clk;
 		
 		$finish;
 	end

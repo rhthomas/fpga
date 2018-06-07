@@ -18,11 +18,11 @@
 
 
 # ------------ LEDS ----------------------------------------------------------
-set_io LED[4] 99
-set_io LED[3] 98
-set_io LED[2] 97
-set_io LED[1] 96
-set_io LED[0] 95
+set_io out[4] 99
+set_io out[3] 98
+set_io out[2] 97
+set_io out[1] 96
+set_io out[0] 95
 
 # ------------ IrDA ----------------------------------------------------------
 #set_io --warn-no-port IrDA_TX 105
@@ -119,7 +119,7 @@ set_io LED[0] 95
 #set_io --warn-no-port BR10 44
 
 # -------------------------- SYSTEM CLOCK ------------------------------------
-set_io --warn-no-port CLK 21
+set_io --warn-no-port clk 21
 
 # -------------------------- FTDI --------------------------------------------
 # --- FTDI 0:

@@ -1,4 +1,4 @@
-<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:s="https://github.com/nturley/netlistsvg" width="271" height="51">
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:s="https://github.com/nturley/netlistsvg" width="387" height="169">
   <style>svg {
     stroke:#000;
     fill:none;
@@ -20,27 +20,62 @@
     fill:#000;
   }</style>
   <g s:type="inputExt" transform="translate(12,16.5)" s:width="30" s:height="20">
-    <text x="15" y="-4" class="nodelabel" s:attribute="ref">CLK</text>
+    <text x="15" y="-4" class="nodelabel" s:attribute="ref">clk</text>
     <s:alias val="$_inputExt_"/>
     <path d="M0,0 L0,20 L15,20 L30,10 L15,0 Z"/>
     <g s:x="28" s:y="10" s:pid="Y"/>
   </g>
-  <g s:type="outputExt" transform="translate(220,16.5)" s:width="30" s:height="20">
-    <text x="15" y="-4" class="nodelabel" s:attribute="ref">LED</text>
+  <g s:type="inputExt" transform="translate(123,137)" s:width="30" s:height="20">
+    <text x="15" y="-4" class="nodelabel" s:attribute="ref">rst</text>
+    <s:alias val="$_inputExt_"/>
+    <path d="M0,0 L0,20 L15,20 L30,10 L15,0 Z"/>
+    <g s:x="28" s:y="10" s:pid="Y"/>
+  </g>
+  <g s:type="inputExt" transform="translate(123,78)" s:width="30" s:height="20">
+    <text x="15" y="-4" class="nodelabel" s:attribute="ref">en</text>
+    <s:alias val="$_inputExt_"/>
+    <path d="M0,0 L0,20 L15,20 L30,10 L15,0 Z"/>
+    <g s:x="28" s:y="10" s:pid="Y"/>
+  </g>
+  <g s:type="outputExt" transform="translate(336,58)" s:width="30" s:height="20">
+    <text x="15" y="-4" class="nodelabel" s:attribute="ref">out</text>
     <s:alias val="$_outputExt_"/>
     <path d="M30,0 L30,20 L15,20 L0,10 L15,0 Z"/>
     <g s:x="0" s:y="10" s:pid="A"/>
   </g>
+  <g s:type="generic" transform="translate(251,57.5)" s:width="30" s:height="40">
+    <text x="15" y="-4" class="nodelabel" s:attribute="ref">count</text>
+    <rect width="30" height="60" s:generic="body"/>
+    <g transform="translate(0,10)" s:x="0" s:y="10" s:pid="in0">
+      <text x="-3" y="-4" class="inputPortLabel">clk</text>
+    </g>
+    <g transform="translate(0,30)" s:x="0" s:y="10" s:pid="in0">
+      <text x="-3" y="-4" class="inputPortLabel">en</text>
+    </g>
+    <g transform="translate(0,50)" s:x="0" s:y="10" s:pid="in0">
+      <text x="-3" y="-4" class="inputPortLabel">rst</text>
+    </g>
+    <g transform="translate(30,10)" s:x="30" s:y="10" s:pid="out0">
+      <text x="5" y="-4" style="fill:#000; stroke:none">out</text>
+    </g>
+  </g>
   <g s:type="generic" transform="translate(123,16)" s:width="30" s:height="40">
-    <text x="15" y="-4" class="nodelabel" s:attribute="ref">counter</text>
+    <text x="15" y="-4" class="nodelabel" s:attribute="ref">div</text>
     <rect width="30" height="20" s:generic="body"/>
     <g transform="translate(0,10)" s:x="0" s:y="10" s:pid="in0">
       <text x="-3" y="-4" class="inputPortLabel">clk_in</text>
     </g>
     <g transform="translate(30,10)" s:x="30" s:y="10" s:pid="out0">
-      <text x="5" y="-4" style="fill:#000; stroke:none">value</text>
+      <text x="5" y="-4" style="fill:#000; stroke:none">clk_out</text>
     </g>
   </g>
-  <line x1="154" y1="26.5" x2="220" y2="26.5"/>
+  <line x1="282" y1="68" x2="336" y2="68"/>
+  <line x1="154" y1="26.5" x2="207" y2="26.5"/>
+  <line x1="207" y1="26.5" x2="207" y2="68"/>
+  <line x1="207" y1="68" x2="251" y2="68"/>
+  <line x1="151" y1="88" x2="251" y2="88"/>
+  <line x1="151" y1="147" x2="207" y2="147"/>
+  <line x1="207" y1="147" x2="207" y2="108"/>
+  <line x1="207" y1="108" x2="251" y2="108"/>
   <line x1="40" y1="26.5" x2="123" y2="26.5"/>
 </svg>
