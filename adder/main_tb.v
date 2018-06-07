@@ -2,8 +2,6 @@
 
 module main_tb #(parameter WIDTH = 4);
 
-//	reg Cin;
-//	wire Cout;
 	reg [WIDTH-1:0] A, B;
 	wire [WIDTH-1:0] Sum;
 

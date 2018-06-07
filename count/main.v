@@ -1,6 +1,6 @@
 module counter (
     input clk_in,
-    output [4:0] value
+    output wire [4:0] value
 );
 
     reg [26:0] counter;
@@ -16,7 +16,7 @@ endmodule
 
 module top (
     input CLK,
-    output [4:0] LED
+    output wire [4:0] LED
 );
 
     counter c (
