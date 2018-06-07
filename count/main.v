@@ -3,12 +3,12 @@ module div (
 	output clk_out
 );
 
-	reg [26:0] count; 
+	reg [21:0] count; 
 
 	always @(posedge clk_in)
 		count <= count + 1;
 
-	assign clk_out = count[26];
+	assign clk_out = count[21];
 
 endmodule
 
