@@ -41,7 +41,10 @@ module top (
 	);
 
 	count count (
-		.clk(slowclk), .rst(rst), .en(en),
+		.clk(clk), // for simulation
+		//.clk(slowclk), // for sythesis
+		.rst(rst),
+		.en(en),
 		.out(out)
 	);
 
