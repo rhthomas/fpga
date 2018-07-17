@@ -11,7 +11,7 @@ module main_tb;
 	parameter ENDTIME = PERIOD * 10; // run for 10 clk cycles
 
 	initial	begin
-		$dumpfile("sim.vcd");
+		$dumpfile("project.vcd");
 		$dumpvars;
 		main;
 	end
