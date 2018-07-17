@@ -16,9 +16,9 @@ other FPGA open-source tools such as
 
 <details>
 	<summary><a href="./count">count</a> : Binary counter.</summary>
-	<img src="count/out.svg">
+	<img src="count/img/top.svg">
 </details>
 <details>
 	<summary><a href="./adder">adder</a> : Simple adder module.</summary>
-	<img src="adder/out.svg">
+	<img src="adder/img/top.svg">
 </details>

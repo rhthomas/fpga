@@ -10,7 +10,7 @@ module main_tb #(parameter WIDTH = 4);
 	top adder (.A(A), .B(B), .Sum(Sum));
 
 	initial begin
-		$dumpfile("sim.vcd");
+		$dumpfile("project.vcd");
 		$dumpvars;
 
 		// initialise inputs
