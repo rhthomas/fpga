@@ -1,19 +1,28 @@
-# fpga
+:Project:	fpga
+:Author:	Rhys Thomas
+:Email:		rhys97@me.com
+:Date:		2018-07-24
+:Revision:	version 2
+:License:	GPLv3
+
+= fpga
+
 Experimenting with FPGA open-source toolchains.
 
-## Tools
+'''
 
+== Tools
 The FPGA that is developed on is the [iCEstick](www.latticesemi.com/icestick)
 from Lattice Semiconductor.
 
 The device is programmed using the on-board FTDI interface, and the
-[apio](https://github.com/FPGAwars/apio) ecosystem project. This expands on
+https://github.com/FPGAwars/apio[apio] ecosystem project. This expands on
 other FPGA open-source tools such as
-[icestorm](http://www.clifford.at/icestorm/) and
-[iverilog](http://iverilog.icarus.com/) among others.
+http://www.clifford.at/icestorm/[icestorm] and
+http://iverilog.icarus.com/[iverilog] among others.
 
-## Builds
-
+== Builds
+++++
 <details>
 	<summary><a href="./count">count</a> : Binary counter.</summary>
 	<img src="count/img/top.svg">
@@ -22,10 +31,10 @@ other FPGA open-source tools such as
 	<summary><a href="./adder">adder</a> : Simple adder module.</summary>
 	<img src="adder/img/top.svg">
 </details>
+++++
 
-## Requirements
-
-### IceStorm
+== Requirements
+=== IceStorm
 ```
 git clone https://github.com/cliffordwolf/icestorm.git icestorm
 cd icestorm
@@ -33,7 +42,7 @@ make
 sudo make install
 ```
 
-### Arachne-PNR
+=== Arachne-PNR
 ```
 git clone https://github.com/cseed/arachne-pnr.git arachne-pnr
 cd arachne-pnr
@@ -41,7 +50,7 @@ make
 sudo make install
 ```
 
-### Yosys
+=== Yosys
 ```
 git clone https://github.com/cliffordwolf/yosys.git yosys
 cd yosys
@@ -49,8 +58,7 @@ make
 sudo make install
 ```
 
-### Netlistsvg (module diagrams)
-
+=== Netlistsvg (module diagrams)
 *More information given [here](https://github.com/nturley/netlistsvg).*
 ```
 (install nodejs)
@@ -59,13 +67,11 @@ cd netlistsvg
 npm install
 ```
 
-### iVerilog (simulations)
-
-#### macOS
+=== iVerilog (simulations)
+==== macOS
 ```
 brew install icarus-verilog
 ```
 
-### Scansion (VCD viewer for macOS)
-
+=== Scansion (VCD viewer for macOS)
 Download [here](http://www.logicpoet.com/scansion/).

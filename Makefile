@@ -39,5 +39,5 @@ $(IMG)/%.json: $(FILES)
 	yosys -p "prep -top $(basename $(notdir $@)); write_json $@" $^
 
 $(IMG)/%.svg: $(IMG)/%.json
-	node ../../netlistsvg/bin/netlistsvg.js $^ -o $@
+	node ../tools/netlistsvg/bin/netlistsvg.js $^ -o $@
 
