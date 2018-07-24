@@ -11,6 +11,8 @@ Experimenting with FPGA open-source toolchains.
 
 '''
 
+toc::[]
+
 == Tools
 The FPGA that is developed on is the [iCEstick](www.latticesemi.com/icestick)
 from Lattice Semiconductor.
