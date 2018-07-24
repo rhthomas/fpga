@@ -10,9 +10,6 @@
 Experimenting with FPGA open-source toolchains.
 
 :toc:
-:toc-placement!:
-
-toc::[]
 
 == Tools
 The FPGA that is developed on is the [iCEstick](www.latticesemi.com/icestick)
@@ -62,7 +59,7 @@ sudo make install
 ```
 
 === Netlistsvg (module diagrams)
-*More information given [here](https://github.com/nturley/netlistsvg).*
+NOTE: _More information given https://github.com/nturley/netlistsvg[here]._
 ```
 (install nodejs)
 git clone https://github.com/nturley/netlistsvg
@@ -77,4 +74,4 @@ brew install icarus-verilog
 ```
 
 === Scansion (VCD viewer for macOS)
-Download [here](http://www.logicpoet.com/scansion/).
+Download http://www.logicpoet.com/scansion/[here].
