@@ -9,7 +9,8 @@
 
 Experimenting with FPGA open-source toolchains.
 
-'''
+:toc:
+:toc-placement!:
 
 toc::[]
 
