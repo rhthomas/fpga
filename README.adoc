@@ -6,13 +6,12 @@
 :License:	GPLv3
 
 = fpga
+:toc:
 
 Experimenting with FPGA open-source toolchains.
 
-:toc:
-
 == Tools
-The FPGA that is developed on is the [iCEstick](www.latticesemi.com/icestick)
+The FPGA that is developed on is the www.latticesemi.com/icestick[iCEstick]
 from Lattice Semiconductor.
 
 The device is programmed using the on-board FTDI interface, and the
