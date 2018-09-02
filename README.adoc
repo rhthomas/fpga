@@ -20,6 +20,19 @@ other FPGA open-source tools such as
 http://www.clifford.at/icestorm/[icestorm] and
 http://iverilog.icarus.com/[iverilog] among others.
 
+A quick script is used to generate the directory structure for new modules,
+simply run `./NewModule <name>` to create a folder with all the necessary files.
+
+```
+> ./NewModule multiplier
+
+multiplier
+├── Makefile
+├── icestick.pcf
+├── top.v
+└── top_tb.v
+```
+
 == Builds
 ++++
 <details>
