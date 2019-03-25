@@ -10,4 +10,3 @@ module top #(
 	assign Sum = A + B;
 
 endmodule
-

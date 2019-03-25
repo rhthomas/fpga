@@ -10,16 +10,16 @@ module main_tb #(parameter WIDTH = 4);
 	top adder (.A(A), .B(B), .Sum(Sum));
 
 	initial begin
-		$dumpfile("project.vcd");
+		$dumpfile("adder.vcd");
 		$dumpvars;
 
 		// initialise inputs
 		{A,B} = 0;
-	
+
 		// cycle through possible combinations
 		for (i=1; i<'hFF; i=i+1) begin
 			#5 {A, B} = i;
-		end	
+		end
 
 		$finish;
 	end

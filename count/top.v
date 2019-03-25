@@ -3,7 +3,7 @@ module div (
 	output clk_out
 );
 
-	reg [21:0] count; 
+	reg [21:0] count;
 
 	always @(posedge clk_in)
 		count <= count + 1;
@@ -41,11 +41,11 @@ module top (
 	);
 
 	count count (
-		.clk(clk), // for simulation
-		//.clk(slowclk), // for sythesis
+		// .clk(clk), // for simulation
+		.clk(slowclk), // for sythesis
 		.rst(rst),
 		.en(en),
 		.out(out)
 	);
 
-endmodule 
+endmodule

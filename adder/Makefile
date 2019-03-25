@@ -1,18 +1,7 @@
-#-------------------------------------------------------------------------------
-# FOSS Verilog Toolchain
-#
-# Author:	Rhys Thomas
-# Created:	2018-07-17
-#-------------------------------------------------------------------------------
-
-# PROJECT METADATA
-PROJ	= project
-BUILD	= ./build
-IMG		= ./img
+PROJ	= adder
 DEVICE	= 1k
-
-# FILES
+PIN_DEF = icestick.pcf
 FILES	= top.v
-TESTS	= top_tb.v
+BENCH	= top_tb.v
 
 -include ../makefile

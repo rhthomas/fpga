@@ -1,43 +1,40 @@
-#-------------------------------------------------------------------------------
+# -----------------------------------------------------------------------------
 # FOSS Verilog Toolchain
 #
-# Author:	Rhys Thomas
-# Created:	2018-07-17
-#-------------------------------------------------------------------------------
+# Author  : Rhys Thomas
+# Created : 2018-07-17
+# -----------------------------------------------------------------------------
 
-IMAGE	= $(patsubst %.v, $(IMG)/%.svg, $(FILES))
+default: all
+all: $(PROJ).bin
 
-.PHONY: all clean flash
+# -----------------------------------------------------------------------------
+# File extensions
 
-default: build
-all: build draw sim
+%.blif: $(SRC)
+	yosys -p 'synth_ice40 -top $(TOP) -blif $@' $(SRC)
 
-build:
-	@echo "\033[0;33mCreating build folder...\033[0;0m"
-	@mkdir -p $(BUILD)
-	yosys -p "synth_ice40 -top top -blif $(BUILD)/$(PROJ).blif" $(FILES)
-	arachne-pnr -d $(DEVICE) -p icestick.pcf -o $(BUILD)/$(PROJ).asc \
-		$(BUILD)/$(PROJ).blif
-	icepack $(BUILD)/$(PROJ).asc $(BUILD)/$(PROJ).bin
+%.asc: $(PIN_DEF) %.blif
+	arachne-pnr -d $(DEVICE) -o $@ -p $^
 
-draw: $(IMAGE)
+%.bin: %.asc
+	icepack $< $@
 
-sim: 
-	iverilog -o $(PROJ).vvp $(FILES) $(TESTS)
-	vvp $(PROJ).vvp	
+%_tb: $(BENCH) $(SRC)
+	iverilog -o $@ $^
+
+%_tb.vcd: %_tb
+	vvp -N $< +vcd=$@
+
+# -----------------------------------------------------------------------------
+# Targets
+
+sim: $(PROJ)_tb.vcd
 	open -a Scansion $(PROJ).vcd
 
-clean:	
+flash: $(PROJ).bin
+	iceprog $<
+
+clean:
 	@echo "\033[0;33mCleaning build...\033[0;0m"
-	@rm -r $(BUILD) *.vcd *.vvp
-
-flash: $(BUILD)/$(PROJ).bin
-	iceprog $^
-
-$(IMG)/%.json: $(FILES)
-	@mkdir -p $(IMG)
-	yosys -p "prep -top $(basename $(notdir $@)); write_json $@" $^
-
-$(IMG)/%.svg: $(IMG)/%.json
-	node ../tools/netlistsvg/bin/netlistsvg.js $^ -o $@
-
+	@rm -f $(PROJ).blif $(PROJ).asc $(PROJ).bin $(PROJ).vcd

@@ -6,7 +6,7 @@ module main_tb;
 	wire [4:0] out;
 
 	top top (.*);
-	
+
 	parameter PERIOD  = 20; // 20ns period
 	parameter ENDTIME = PERIOD * 10; // run for 10 clk cycles
 
