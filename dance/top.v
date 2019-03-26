@@ -1,5 +1,3 @@
-`define SYNTH
-
 module top (
     input clock, reset,
     output [4:0] led
@@ -8,27 +6,29 @@ module top (
     wire slow_clock;
     wire [3:0] addr;
 
-    div div (
-        .clock (clock),
-        .reset (reset),
-        .slow_clock (slow_clock)
-    );
+    `ifndef SIM
+        div div (
+            .clock (clock),
+            .reset (reset),
+            .slow_clock (slow_clock)
+        );
+    `endif
 
     pc pc (
-        `ifdef SYNTH
-            .clock (slow_clock),
-        `else
+        `ifdef SIM
             .clock (clock),
+        `else
+            .clock (slow_clock),
         `endif
         .reset (reset),
         .count (addr)
     );
 
     mem mem (
-        `ifdef SYNTH
-            .clock (slow_clock),
-        `else
+        `ifdef SIM
             .clock (clock),
+        `else
+            .clock (slow_clock),
         `endif
         .addr (addr),
         .num (led)

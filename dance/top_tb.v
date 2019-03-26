@@ -1,5 +1,7 @@
 `timescale 1ns / 1ns
 
+`define SIM
+
 module top_tb;
 
     parameter PERIOD = 20;
