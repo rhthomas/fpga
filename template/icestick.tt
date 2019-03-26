@@ -1,38 +1,3 @@
-#!/usr/bin/env bash
-# usage:	./NewModule name
-
-module=$1
-echo "Creating folder for module: ${module}..."
-
-mkdir -p ${module}
-
-touch ${module}/{top.v,top_tb.v}
-
-cat >> ${module}/Makefile << EOF
-#-------------------------------------------------------------------------------
-# FOSS Verilog Toolchain
-#
-# Author:	Rhys Thomas
-# Created:	2018-07-17
-#-------------------------------------------------------------------------------
-
-# PROJECT METADATA
-PROJ	= ${name}
-BUILD	= ./build
-IMG		= ./img
-DEVICE	= 1k
-
-# FILES
-FILES	= top.v
-TESTS	= top_tb.v
-
--include ../makefile
-
-EOF
-
-cat >> ${module}/icestick.pcf << EOF
-# Generic iCEstick placement constraints file
-
 # Red LEDs
 set_io LED0 99
 set_io LED1 98
@@ -98,5 +63,3 @@ set_io RS232_Rx_TTL 9
 
 # 12 MHz clock
 set_io iCE_CLK 21
-
-EOF

@@ -1,0 +1,62 @@
+`timescale 1ns / 1ns
+
+module [% module_name %]_tb;
+
+    parameter PERIOD = 20;
+
+    reg clock;
+
+    [% module_name %] [% module_name %] (
+        // TODO Add module interfaces
+    );
+
+    event terminate;
+    event reset_enable, reset_done;
+
+    integer err_cnt;
+
+    // clock
+    initial begin
+        forever #(PERIOD/2) clock = !clock;
+    end
+
+    // write to VCD
+    initial begin
+		$dumpfile("dance.vcd");
+		$dumpvars;
+        $display("----------------------------------------");
+	end
+
+    initial begin
+        @(reset_enable);
+        $display("Resetting DUT");
+
+        err_cnt = 0;
+        clock   = 0;
+
+        // TODO Add reset code.
+
+        $display("Reset complete");
+        -> reset_done;
+    end
+
+    // end simulation
+    initial begin
+        @(terminate);
+        $display("Simulation complete!");
+        $display("%0d errors", err_cnt);
+        $display("----------------------------------------");
+        $finish;
+    end
+
+    // main test routine
+    initial begin
+        -> reset_enable;
+        @(reset_done);
+
+        // TODO Main test routine
+
+        -> terminate;
+    end
+
+endmodule
