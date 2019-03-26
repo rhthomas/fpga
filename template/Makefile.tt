@@ -2,7 +2,6 @@ PROJ    = [% project_name %]
 DEVICE  = 1k
 PIN_DEF = icestick.pcf
 SRC     = [% module_name %].v
-TOP     = [% module_name %]
 BENCH   = [% module_name %]_tb.v
 
 -include ../makefile

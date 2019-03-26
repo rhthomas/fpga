@@ -34,7 +34,7 @@ module top_tb;
 
     // write to VCD
     initial begin
-		$dumpfile("dance.vcd");
+		$dumpfile("top_tb.vcd");
 		$dumpvars;
         $display("----------------------------------------");
 	end

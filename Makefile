@@ -1,40 +1,27 @@
-# -----------------------------------------------------------------------------
-# FOSS Verilog Toolchain
-#
-# Author  : Rhys Thomas
-# Created : 2018-07-17
-# -----------------------------------------------------------------------------
+ default: all
+ all: $(PROJ).bin
 
-default: all
-all: $(PROJ).bin
+ %.blif: $(SRC)
+ 	yosys -p 'synth_ice40 -top $(basename $<) -blif $@' $^
 
-# -----------------------------------------------------------------------------
-# File extensions
+ %.asc: $(PIN_DEF) %.blif
+ 	arachne-pnr -d $(DEVICE) -o $@ -p $^
 
-%.blif: $(SRC)
-	yosys -p 'synth_ice40 -top $(TOP) -blif $@' $(SRC)
+ %.bin: %.asc
+ 	icepack $< $@
 
-%.asc: $(PIN_DEF) %.blif
-	arachne-pnr -d $(DEVICE) -o $@ -p $^
+ %_tb: $(BENCH) $(SRC)
+ 	iverilog -o $@ $^
 
-%.bin: %.asc
-	icepack $< $@
+ %_tb.vcd: %_tb
+ 	vvp -N $< +vcd=$@
 
-%_tb: $(BENCH) $(SRC)
-	iverilog -o $@ $^
+ sim: $(basename $(BENCH)).vcd
+ 	open -a Scansion $^
 
-%_tb.vcd: %_tb
-	vvp -N $< +vcd=$@
+ flash: $(PROJ).bin
+ 	iceprog $<
 
-# -----------------------------------------------------------------------------
-# Targets
-
-sim: $(PROJ)_tb.vcd
-	open -a Scansion $(PROJ).vcd
-
-flash: $(PROJ).bin
-	iceprog $<
-
-clean:
-	@echo "\033[0;33mCleaning build...\033[0;0m"
-	@rm -f $(PROJ).blif $(PROJ).asc $(PROJ).bin $(PROJ).vcd
+ clean:
+ 	@echo "\033[0;33mCleaning build...\033[0;0m"
+ 	@rm -f *.blif *.asc *.bin *.vcd

@@ -22,7 +22,7 @@ module [% module_name %]_tb;
 
     // write to VCD
     initial begin
-		$dumpfile("dance.vcd");
+		$dumpfile("[% module_name %]_tb.vcd");
 		$dumpvars;
         $display("----------------------------------------");
 	end
