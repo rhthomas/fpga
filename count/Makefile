@@ -1,8 +1,8 @@
-PROJ	= count
-DEVICE	= 1k
+PROJ    = count
+DEVICE  = 1k
 PIN_DEF = icestick.pcf
-SRC	    = top.v
+SRC     = top.v
 TOP     = top
-BENCH	= top_tb.v
+BENCH   = top_tb.v
 
 -include ../makefile
