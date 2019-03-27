@@ -26,7 +26,7 @@ Creating module module files.
 </details>
 <details>
 	<summary><a href="./count">count</a> : Binary counter.</summary>
-	<img src="./count/top.svg">
+	<img src="./count/count.svg">
 </details>
 <details>
 	<summary><a href="./dance">dance</a> : LED pattern display.</summary>
