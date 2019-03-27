@@ -1,27 +1,35 @@
- default: all
- all: $(PROJ).bin
+default: $(PROJ).bin
+all: default sim draw flash
 
- %.blif: $(SRC)
- 	yosys -p 'synth_ice40 -top $(basename $<) -blif $@' $^
+%.blif: $(SRC)
+	yosys -p 'synth_ice40 -top $(basename $<) -blif $@' $^
 
- %.asc: $(PIN_DEF) %.blif
- 	arachne-pnr -d $(DEVICE) -o $@ -p $^
+%.asc: $(PIN_DEF) %.blif
+	arachne-pnr -d $(DEVICE) -o $@ -p $^
 
- %.bin: %.asc
- 	icepack $< $@
+%.bin: %.asc
+	icepack $< $@
 
- %_tb: $(BENCH) $(SRC)
- 	iverilog -o $@ $^
+%_tb: $(BENCH) $(SRC)
+	iverilog -o $@ $^
 
- %_tb.vcd: %_tb
- 	vvp -N $< +vcd=$@
+%_tb.vcd: %_tb
+	vvp -N $< +vcd=$@
 
- sim: $(basename $(BENCH)).vcd
- 	open -a Scansion $^
+%.json: $(SRC)
+	yosys -p "prep -top $(basename $<); write_json $@" $^
 
- flash: $(PROJ).bin
- 	iceprog $<
+%.svg: %.json
+	netlistsvg $^ -o $@
 
- clean:
- 	@echo "\033[0;33mCleaning build...\033[0;0m"
- 	@rm -f *.blif *.asc *.bin *.vcd
+draw: $(PROJ).svg
+
+sim: $(basename $(BENCH)).vcd
+	open -a Scansion $^
+
+flash: $(PROJ).bin
+	iceprog $<
+
+clean:
+	@echo "\033[0;33mCleaning build...\033[0;0m"
+	@rm -f *.blif *.asc *.bin *.vcd *.json
