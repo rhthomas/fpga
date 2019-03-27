@@ -22,15 +22,15 @@ Creating module module files.
 ## Builds
 <details>
 	<summary><a href="./adder">adder</a> : Simple adder module.</summary>
-	<img src="adder/img/adder.svg">
+	<img src="./adder/adder.svg">
 </details>
 <details>
 	<summary><a href="./count">count</a> : Binary counter.</summary>
-	<img src="count/img/top.svg">
+	<img src="./count/top.svg">
 </details>
 <details>
 	<summary><a href="./dance">dance</a> : LED pattern display.</summary>
-	<img src="dance/img/dance.svg">
+	<img src="./dance/dance.svg">
 </details>
 
 ## Requirements
